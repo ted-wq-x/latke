@@ -84,6 +84,7 @@ public class StaticResourceHandler implements Handler {
      */
     public StaticResourceHandler(final ServletContext servletContext) {
 
+        //获取容器的默认静态资源处理器，即servlet
         for (String servletName : OPTION_SERVLET_NAME) {
             requestDispatcher = servletContext.getNamedDispatcher(servletName);
             if (requestDispatcher != null) {

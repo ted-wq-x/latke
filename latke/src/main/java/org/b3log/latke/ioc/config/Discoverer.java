@@ -64,6 +64,7 @@ public final class Discoverer {
 
     /**
      * Scans classpath to discover bean classes.
+     * 使用字节码查找带有指定注解的class
      * 
      * @param scanPath the paths to scan, using ',' as the separator. There are two types of the scanPath: 
      * <ul>
@@ -161,6 +162,7 @@ public final class Discoverer {
                 Class<?> clz = null;
 
                 try {
+                    //当前线程的类加载器
                     clz = Thread.currentThread().getContextClassLoader().loadClass(className);
                 } catch (final ClassNotFoundException e) {
                     LOGGER.log(Level.ERROR, "some error to load the class[" + className + "]", e);

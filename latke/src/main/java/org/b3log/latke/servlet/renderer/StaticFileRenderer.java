@@ -53,6 +53,7 @@ public class StaticFileRenderer extends AbstractHTTPResponseRenderer {
     public void render(final HTTPRequestContext context) {
 
         try {
+            //使用的是原有的servlet forward方法
             requestDispatcher.forward(context.getRequest(), context.getResponse());
         } catch (final Exception e) {
             LOGGER.log(Level.ERROR, "servlet forward error", e);

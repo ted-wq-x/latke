@@ -63,8 +63,8 @@ public final class DispatcherServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
+        //注意责任链处理顺序
         SYS_HANDLER.add(new StaticResourceHandler(getServletContext()));
-
         SYS_HANDLER.add(new RequestPrepareHandler());
         SYS_HANDLER.add(new RequestDispatchHandler());
         SYS_HANDLER.add(new ArgsHandler());
@@ -81,11 +81,13 @@ public final class DispatcherServlet extends HttpServlet {
         final HttpControl httpControl = new HttpControl(SYS_HANDLER.iterator(), httpRequestContext);
 
         try {
+            // 使用责任链模式
             httpControl.nextHandler();
         } catch (final Exception e) {
             httpRequestContext.setRenderer(new HTTP500Renderer(e));
         }
 
+        // 请求处理结果渲染AbstractHTTPResponseRenderer
         result(httpRequestContext);
     }
 

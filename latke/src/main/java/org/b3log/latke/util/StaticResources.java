@@ -32,6 +32,7 @@ import org.w3c.dom.NodeList;
 
 /**
  * Static resource utilities.
+ * 判断请求是否为获取静态资源，并提供静态资源初始化
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
  * @version 2.0.0.5, Jan 8, 2016

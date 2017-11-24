@@ -101,6 +101,7 @@ public final class Cron extends TimerTask {
     public void run() {
         LOGGER.debug("Executing scheduled task....");
 
+        //简单工厂获取 LocalURLFetchService 对象
         final URLFetchService urlFetchService = URLFetchServiceFactory.getURLFetchService();
 
         final HTTPRequest request = new HTTPRequest();
@@ -108,6 +109,8 @@ public final class Cron extends TimerTask {
         try {
             request.setURL(new URL(url));
             request.setRequestMethod(HTTPRequestMethod.GET);
+
+            //使用get请求，异步执行任务
             urlFetchService.fetchAsync(request);
 
             LOGGER.log(Level.DEBUG, "Executed scheduled task[url={0}]", url);
@@ -118,6 +121,7 @@ public final class Cron extends TimerTask {
     }
 
     /**
+     * 时间参数解析
      * Parses the specified schedule into {@link #period execution period}.
      *
      * @param schedule the specified schedule

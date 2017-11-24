@@ -67,6 +67,7 @@ public final class LocalURLFetchService implements URLFetchService {
     }
 
     /**
+     * 包装，添加输入参数
      * URL fetch task.
      *
      * @author <a href="http://88250.b3log.org">Liang Ding</a>

@@ -40,6 +40,7 @@ import org.b3log.latke.logging.Logger;
 
 
 /**
+ * 获取基本的资源路径
  * A mock servlet context for test mainly.
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>

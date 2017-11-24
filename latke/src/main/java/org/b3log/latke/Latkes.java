@@ -610,6 +610,7 @@ public final class Latkes {
                 LOGGER.log(Level.TRACE, "H2 TCP port [{0}]", port);
 
                 try {
+                    //启动H2dbms
                     h2 = org.h2.tools.Server.createTcpServer(new String[]{"-tcpPort", port, "-tcpAllowOthers"}).start();
                 } catch (final SQLException e) {
                     final String msg = "H2 TCP server create failed";
@@ -781,6 +782,7 @@ public final class Latkes {
 
         Lifecycle.endApplication();
 
+        // 我也遇到这个问题了
         // Manually unregister JDBC driver, which prevents Tomcat from complaining about memory leaks
         final Enumeration<Driver> drivers = DriverManager.getDrivers();
         while (drivers.hasMoreElements()) {

@@ -78,7 +78,7 @@ public class LatkeBeanManagerImpl implements LatkeBeanManager {
     private Configurator configurator;
 
     /**
-     * Beans.
+     * Beans.ioc容器
      */
     private Set<LatkeBean<?>> beans;
 

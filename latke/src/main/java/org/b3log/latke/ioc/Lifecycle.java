@@ -89,6 +89,7 @@ public final class Lifecycle {
         beanManager.addContext(applicationContext);
         final Configurator configurator = beanManager.getConfigurator();
 
+        //找到指定的class文件，创建对象，放到ioc中
         if (null != classes && !classes.isEmpty()) {
             configurator.createBeans(classes);
         }

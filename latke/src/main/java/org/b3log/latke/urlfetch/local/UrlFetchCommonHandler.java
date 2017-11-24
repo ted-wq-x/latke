@@ -75,9 +75,11 @@ class UrlFetchCommonHandler {
     protected HTTPResponse doFetch(final HTTPRequest request) throws IOException {
         final HttpURLConnection httpURLConnection = prepareConnection(request);
 
+        //单独抽出方法，方便子类修改
         configConnection(httpURLConnection, request);
         httpURLConnection.connect();
 
+        //处理请求参数
         final HTTPResponse ret = resultConnection(httpURLConnection);
         httpURLConnection.disconnect();
 
@@ -109,6 +111,7 @@ class UrlFetchCommonHandler {
     }
 
     /**
+     * 方法单独抽出，方便子类修改时间
      * @param httpURLConnection {@link HttpURLConnection}
      * @param request           the specified HTTP request
      * @throws IOException IOException from java.net
@@ -121,7 +124,7 @@ class UrlFetchCommonHandler {
 
     /**
      * @param httpURLConnection {@link HttpURLConnection}
-     * @return HTTPResponse the http response
+     * @return HTTPResponse the http response 对请求结果的封装
      * @throws IOException IOException from java.net
      */
     protected HTTPResponse resultConnection(final HttpURLConnection httpURLConnection) throws IOException {

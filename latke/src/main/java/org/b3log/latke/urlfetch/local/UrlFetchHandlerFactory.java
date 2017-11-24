@@ -20,6 +20,7 @@ import org.b3log.latke.servlet.HTTPRequestMethod;
 
 
 /**
+ * 工厂方法
  * UrlFetchHandlerFactory to get an UrlFetchHandler.
  *
  * @author <a href="mailto:wmainlove@gmail.com">Love Yao</a>

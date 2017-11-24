@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--定时任务配置，方便阅读代码用的-->
+<cronentries>
+
+    <cron>
+        <url>/console/stat/onlineVisitorRefresh</url>
+        <description>Online Visitor Refresher</description>
+        <schedule>every 60 minutes</schedule>
+    </cron>
+
+    <cron>
+        <url>/blog/symphony/user</url>
+        <description>Sync user to https://hacpai.com</description>
+        <schedule>every 24 hours</schedule>
+    </cron>
+
+</cronentries>

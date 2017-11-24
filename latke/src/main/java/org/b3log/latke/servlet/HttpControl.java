@@ -30,6 +30,8 @@ import javax.servlet.http.HttpServletRequest;
 
 
 /**
+ * 责任链的处理中心，使用map，再handler之间传递参数
+ *
  * the HttpControl for one request to do the data-stored and handler process.
  *
  * @author <a href="mailto:wmainlove@gmail.com">Love Yao</a>

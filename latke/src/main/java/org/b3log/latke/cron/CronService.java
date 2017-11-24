@@ -31,7 +31,7 @@ import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Cron jobs service.
+ * Cron jobs service.定时任务
  * <p>
  * Loads cron jobs configurations from cron.xml and schedules tasks.
  * </p>
@@ -117,6 +117,8 @@ public final class CronService {
     }
 
     /**
+     * xml解析定时任务配置
+     *
      * Loads cron.xml.
      */
     private static void loadCronXML() {

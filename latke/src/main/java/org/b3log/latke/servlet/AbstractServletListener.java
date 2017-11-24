@@ -32,6 +32,7 @@ import java.util.Locale;
 
 /**
  * Abstract servlet listener.
+ * 使用的是javaEE的技术，web容器在启动或终止的时候会调用
  *
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
  * @version 1.0.6.6, Jul 5, 2017
@@ -49,6 +50,7 @@ public abstract class AbstractServletListener implements ServletContextListener,
     private static ServletContext servletContext;
 
     static {
+        //获取web.xml中的配置，以及classes文件
         servletContext = new MockServletContext();
     }
 
@@ -84,6 +86,7 @@ public abstract class AbstractServletListener implements ServletContextListener,
         LOGGER.log(Level.INFO, "Server [realPath={0}, contextPath={1}]", realPath, servletContext.getContextPath());
 
         try {
+            //扫描servlet路径
             final Collection<Class<?>> beanClasses = Discoverer.discover(Latkes.getScanPath());
 
             Lifecycle.startApplication(beanClasses); // Starts Latke IoC container
@@ -93,6 +96,7 @@ public abstract class AbstractServletListener implements ServletContextListener,
             throw new IllegalStateException("Initializes request processors failed");
         }
 
+        //启动定时任务
         CronService.start();
     }
 
